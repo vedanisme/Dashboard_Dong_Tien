@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hướng dẫn sử dụng Dashboard Dòng tiền - TCKHTT (5 Trang)</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue-dark:   #106B3C;
+    --blue-mid:     #78D64B;
+    --blue-light:  #3DBEB3;
+    --blue-xlight: #EEF6FD;
+    --amber:       #857550;
+    --amber-light: #FEF3E2;
+    --amber-border:#C8B273;
+    --red:         #FF3100;
+    --red-light:   #FDF0F0;
+    --red-border:  #F0AAAA;
+    --gray-900:    #1A1A1A;
+    --gray-700:    #3D3D3D;
+    --gray-500:    #86888A;
+    --gray-300:    #C8C8C8;
+    --gray-100:    #F5F5F5;
+    --white:       #FFFFFF;
+    --green:       #1A6B3A;
+    --green-light: #E8F5EE;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    background: #F0F4F9;
+    color: var(--gray-700);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    zoom: 1.1;
+  }
+  .hero { background: var(--blue-dark); position: relative; overflow: hidden; padding: 64px 0 72px; }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 80% 20%, rgba(21, 168, 53, 0.55) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(21, 168, 53, 0.55) 0%, transparent 60%);
+  }
+  .hero::after { content: ''; position: absolute; right: -60px; top: -60px; width: 420px; height: 420px; border: 1.5px solid rgba(255,255,255,0.06); border-radius: 50%; }
+  .hero-inner { position: relative; max-width: 900px; margin: 0 auto; padding: 0 40px; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18); border-radius: 100px; padding: 5px 14px; font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.75); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 20px; }
+  .hero-badge span { width: 6px; height: 6px; border-radius: 50%; background: #60D08A; display: inline-block; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 44px); font-weight: 700; color: #FFFFFF; line-height: 1.2; margin-bottom: 12px; letter-spacing: -0.02em; }
+  .hero-sub { font-size: 16px; color: rgba(255,255,255,0.55); font-weight: 300; margin-bottom: 36px; }
+  .hero-meta { display: flex; gap: 32px; flex-wrap: wrap; }
+  .hero-meta-item { display: flex; flex-direction: column; gap: 2px; }
+  .hero-meta-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.4); }
+  .hero-meta-value { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.85); }
+  .main { max-width: 900px; margin: 0 auto; padding: 48px 40px 80px; }
+  .section { margin-bottom: 52px; }
+  .section-head { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1.5px solid #E2EBF3; }
+  .section-num { width: 32px; height: 32px; border-radius: 8px; background: var(--blue-dark); color: white; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; color: var(--blue-dark); letter-spacing: -0.01em; }
+  .lead { font-size: 14px; color: var(--gray-700); margin-bottom: 20px; line-height: 1.7; }
+  .lead strong { color: var(--blue-dark); font-weight: 600; }
+  .kpi-table { width: 100%; border-collapse: collapse; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .kpi-table thead tr { background: var(--blue-dark); }
+  .kpi-table thead th { padding: 11px 16px; text-align: left; font-size: 11.5px; font-weight: 600; color: rgba(255,255,255,0.85); letter-spacing: 0.05em; text-transform: uppercase; }
+  .kpi-table tbody tr:nth-child(odd) { background: var(--white); }
+  .kpi-table tbody tr:nth-child(even) { background: var(--blue-xlight); }
+  .kpi-table tbody tr:hover { background: #D6E8F7; }
+  .kpi-table td { padding: 12px 16px; font-size: 13px; vertical-align: top; border-bottom: 1px solid #EEF4FA; line-height: 1.6; }
+  .kpi-table td:first-child { font-weight: 700; color: var(--blue-dark); font-size: 12.5px; }
+  .visual-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+  .visual-card { background: var(--white); border: 1px solid #DDE8F2; border-radius: 10px; padding: 14px 16px; display: flex; gap: 12px; align-items: flex-start; transition: box-shadow 0.2s; }
+  .visual-card:hover { box-shadow: 0 4px 14px rgba(12,61,110,0.08); }
+  .visual-emoji { font-size: 22px; flex-shrink: 0; }
+  .visual-name { font-size: 13px; font-weight: 700; color: var(--blue-dark); margin-bottom: 4px; }
+  .visual-desc { font-size: 12px; color: var(--gray-500); line-height: 1.55; }
+  .toc { background: var(--white); border: 1px solid #DDE8F2; border-radius: 12px; padding: 20px 24px; margin-bottom: 40px; }
+  .toc h3 { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--blue-dark); margin-bottom: 12px; }
+  .toc ol { list-style: none; counter-reset: toc; columns: 1; }
+  .toc li { counter-increment: toc; padding: 5px 0 5px 30px; position: relative; font-size: 13.5px; }
+  .toc li::before { content: counter(toc); position: absolute; left: 0; top: 5px; width: 20px; height: 20px; background: var(--green-light); color: var(--blue-dark); border-radius: 50%; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+  .toc a { color: var(--gray-700); text-decoration: none; }
+  .toc a:hover { color: var(--blue-dark); text-decoration: underline; }
+  .shot { margin: 18px 0; }
+  .shot img { width: 100%; display: block; border: 1px solid #CBD9E8; border-radius: 12px; box-shadow: 0 8px 28px rgba(12,61,110,0.12); }
+  .shot-cap { font-size: 12px; color: var(--gray-500); margin-top: 8px; text-align: center; font-style: italic; }
+  .recipe { background: var(--white); border: 1px solid #DDE8F2; border-radius: 12px; padding: 18px 20px; margin-bottom: 14px; }
+  .recipe-q { font-size: 14.5px; font-weight: 700; color: var(--blue-dark); margin-bottom: 12px; display: flex; gap: 10px; align-items: flex-start; }
+  .recipe-q .qmark { background: var(--blue-dark); color: #fff; border-radius: 7px; padding: 2px 9px; font-size: 12px; flex-shrink: 0; margin-top: 1px; }
+  .recipe ol { list-style: none; counter-reset: rstep; }
+  .recipe ol li { counter-increment: rstep; position: relative; padding: 5px 0 5px 32px; font-size: 13.5px; color: var(--gray-700); line-height: 1.55; }
+  .recipe ol li::before { content: counter(rstep); position: absolute; left: 0; top: 4px; width: 22px; height: 22px; background: var(--green-light); color: var(--blue-dark); border-radius: 50%; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+  footer { background: var(--blue-dark); text-align: center; padding: 28px 40px; font-size: 12px; color: rgba(255,255,255,0.4); letter-spacing: 0.03em; }
+  footer strong { color: rgba(255,255,255,0.7); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge"><span></span> Power BI / Dashboard · ACC1 · 5 Trang Báo Cáo</div>
+    <h1>Hướng dẫn sử dụng<br>Dashboard Dòng tiền - TCKHTT</h1>
+    <p class="hero-sub">Tài liệu hướng dẫn trực quan dành cho người dùng cuối</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><span class="hero-meta-label">Báo cáo</span><span class="hero-meta-value">Dòng tiền - TCKHTT</span></div>
+      <div class="hero-meta-item"><span class="hero-meta-label">Nền tảng</span><span class="hero-meta-value">Power BI</span></div>
+      <div class="hero-meta-item"><span class="hero-meta-label">Phạm vi</span><span class="hero-meta-value">05 Trang chính & Bộ lọc</span></div>
+      <div class="hero-meta-item"><span class="hero-meta-label">Cập nhật</span><span class="hero-meta-value">08-2026</span></div>
+    </div>
+  </div>
+</header>
+
+<main class="main">
+
+  <div class="toc">
+    <h3>Nội dung tài liệu hướng dẫn</h3>
+    <ol>
+      <li><a href="#filters">Hướng dẫn sử dụng hệ thống Bộ lọc (Slicers)</a></li>
+      <li><a href="#matrix-guide">Hướng dẫn dùng dấu [+] và [-] để xem cấp độ thấp hơn</a></li>
+      <li><a href="#s1">Trang 1: Tổng quan (Overview)</a></li>
+      <li><a href="#s2">Trang 2: Cơ cấu dòng tiền</a></li>
+      <li><a href="#s3">Trang 3: Quản lý Thu - Chi</a></li>
+      <li><a href="#s4">Trang 4: Tiền & tương đương tiền</a></li>
+      <li><a href="#s5">Trang 5: Báo cáo tổng hợp</a></li>
+    </ol>
+  </div>
+
+  <!-- PHẦN 1: HƯỚNG DẪN BỘ LỌC -->
+  <section class="section" id="filters">
+    <div class="section-head"><div class="section-num">⚙️</div><h2 class="section-title">Hướng dẫn sử dụng hệ thống Bộ lọc (Slicers)</h2></div>
+    <p class="lead">Dashboard tích hợp các thanh bộ lọc thông minh ở phía trên cùng của mỗi trang giúp bạn dễ dàng khoanh vùng dữ liệu cần phân tích:</p>
+    
+    <table class="kpi-table" style="margin-bottom: 20px;">
+      <thead><tr><th>Tên Bộ Lọc</th><th>Cách Thao Tác</th><th>Tác Dụng & Lưu Ý</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>Ngày / Tháng báo cáo</b></td>
+          <td>Nhấp vào ô chọn thời gian để mở lịch hoặc chọn nhanh tháng cần xem (ví dụ: Tháng 2, Tháng 8).</td>
+          <td>Thay đổi mốc thời gian hiển thị cho toàn bộ trang báo cáo. Hãy chọn đúng kỳ báo cáo để số liệu phản ánh chính xác.</td>
+        </tr>
+        <tr>
+          <td><b>Đơn vị</b></td>
+          <td>Nhấp vào menu thả xuống (Dropdown) và chọn tên đơn vị thành viên.</td>
+          <td>Lọc số liệu chuyên sâu dành riêng cho một công ty thành viên cụ thể (ví dụ: CTY TM và DV CC1, Việt Hưng, Việt Quang...).</td>
+        </tr>
+        <tr>
+          <td><b>Tiền tệ</b></td>
+          <td>Nhấp vào menu thả xuống để chọn loại đơn vị hiển thị.</td>
+          <td>Mặc định hiển thị chuẩn theo đơn vị Tỷ VNĐ để thuận tiện cho việc đọc báo cáo quy mô lớn.</td>
+        </tr>
+        <tr>
+          <td><b>Tên khối</b></td>
+          <td>Chọn khối hoạt động tương ứng trong danh sách thả xuống.</td>
+          <td>Lọc dữ liệu theo từng khối chiến lược: Xây lắp, Kinh doanh, Tài Chính, Văn phòng, Đầu Tư.</td>
+        </tr>
+        <tr>
+          <td><b>Tên vụ việc</b></td>
+          <td>Chọn dự án hoặc vụ việc cụ thể từ danh sách.</td>
+          <td>Cô lập số liệu tài chính riêng cho một Dự án hoặc Vụ việc cụ thể (ví dụ: Bệnh viện Đa khoa Bình Dương, các gói thầu XL...).</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="recipe">
+      <div class="recipe-q"><span class="qmark">Mẹo</span> Lưu ý khi dùng bộ lọc</div>
+      <ol>
+        <li><b>Đồng bộ xuyên trang:</b> Các bộ lọc quan trọng như Đơn vị và Tiền tệ có tính năng đồng bộ tự động. Khi bạn chọn ở trang này, chuyển sang trang khác thông tin vẫn được giữ nguyên.</li>
+        <li><b>Xóa bộ lọc:</b> Nhấp vào tùy chọn "All" hoặc dấu "X" trên bộ lọc để đưa trạng thái báo cáo về mức tổng quan toàn tập đoàn.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- PHẦN 2: HƯỚNG DẪN DÙNG DẤU + TRỪ XEM CẤP ĐỘ THẤP HƠN -->
+  <section class="section" id="matrix-guide">
+    <div class="section-head"><div class="section-num">➕</div><h2 class="section-title">Hướng dẫn sử dụng dấu [+] và [-] để xem cấp độ thấp hơn</h2></div>
+    <p class="lead">Trong các bảng ma trận tài chính (đặc biệt tại <b>Trang 5: Báo cáo tổng hợp</b>), dữ liệu được tổ chức theo dạng phân cấp. Điều này giúp giao diện gọn gàng nhưng vẫn cho phép bạn bóc tách chi tiết khi cần.</p>
+    
+    <div class="recipe">
+      <div class="recipe-q"><span class="qmark">Thao tác</span> Cách bóc tách dữ liệu bảng ma trận</div>
+      <ol>
+        <li><b>Nhận diện biểu tượng:</b> Ở cột đầu tiên (cột Hạng mục hoặc Vụ việc), bạn sẽ thấy các dấu cộng <code style="background:#e2ebf3;padding:2px 6px;border-radius:4px;font-weight:bold;">[+]</code> hoặc dấu trừ <code style="background:#e2ebf3;padding:2px 6px;border-radius:4px;font-weight:bold;">[-]</code> nằm bên trái tên nhóm.</li>
+        <li><b>Mở rộng xem chi tiết (Dấu [+] ):</b> Nhấp trực tiếp vào dấu cộng <code style="background:#e2ebf3;padding:2px 6px;border-radius:4px;font-weight:bold;">[+]</code> của một mục tổng (ví dụ: B. THU TRONG KỲ) để hệ thống bung ra các tiểu mục con chi tiết bên trong.</li>
+        <li><b>Thu gọn thông tin (Dấu [-] ):</b> Nhấp vào dấu trừ <code style="background:#e2ebf3;padding:2px 6px;border-radius:4px;font-weight:bold;">[-]</code> nếu bạn muốn thu gọn bảng lại, chỉ hiển thị số liệu tổng quan ở cấp cao nhất.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 1. Tổng quan -->
+  <section class="section" id="s1">
+    <div class="section-head"><div class="section-num">1</div><h2 class="section-title">Trang 1: Tổng quan (Overview)</h2></div>
+    <p class="lead">Trang Tổng quan hoạt động như bảng điều khiển trung tâm, cung cấp cái nhìn tổng thể và nhanh chóng nhất về sức khỏe tài chính toàn tập đoàn.</p>
+    
+    <div class="shot">
+      <img src="image_d35f3b.png" alt="Trang Tổng quan Dashboard">
+      <div class="shot-cap">Giao diện thực tế Trang Tổng quan — Thẻ KPI và biểu đồ phân bổ đơn vị</div>
+    </div>
+
+    <h3 style="font-family:'Playfair Display',serif;color:var(--blue-dark);font-size:16px;margin:18px 0 12px">Các chỉ số KPI cốt lõi</h3>
+    <table class="kpi-table">
+      <thead><tr><th>Chỉ số / Thẻ (Card)</th><th>Ý nghĩa & Cách đọc</th></tr></thead>
+      <tbody>
+        <tr><td>Số dư tiền tập đoàn</td><td>Tổng quy mô tiền mặt và tiền gửi hiện có của toàn hệ thống tại ngày báo cáo.</td></tr>
+        <tr><td>Cân đối thu - chi</td><td>Chênh lệch ròng giữa Tổng thu và Tổng chi. Tự động đổi màu động (Xanh khi thặng dư, Đỏ khi thâm hụt) giúp cảnh báo tức thời.</td></tr>
+        <tr><td>Tổng thu / Tổng chi lũy kế</td><td>Tổng giá trị tiền thực hiện tính từ đầu kỳ báo cáo đến mốc thời gian hiện tại.</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-family:'Playfair Display',serif;color:var(--blue-dark);font-size:16px;margin:18px 0 12px">Biểu đồ phân tích chính</h3>
+    <div class="visual-grid">
+      <div class="visual-card"><div class="visual-emoji">📈</div><div><div class="visual-name">Số dư tiền cuối kỳ theo thời gian</div><div class="visual-desc">Biểu đồ đường thể hiện xu hướng biến động số dư tiền ròng qua từng tháng.</div></div></div>
+      <div class="visual-card"><div class="visual-emoji">📊</div><div><div class="visual-name">Số dư tiền cuối kỳ theo đơn vị</div><div class="visual-desc">Biểu đồ cột so sánh quy mô nắm giữ tiền mặt giữa các đơn vị thành viên.</div></div></div>
+      <div class="visual-card"><div class="visual-emoji">🎯</div><div><div class="visual-name">Tỷ lệ đạt kế hoạch thu / chi</div><div class="visual-desc">Biểu đồ đánh giá mức độ hoàn thành chỉ tiêu thực hiện so với ngân sách kế hoạch được giao.</div></div></div>
+    </div>
+  </section>
+
+  <!-- 2. Cơ cấu dòng tiền -->
+  <section class="section" id="s2">
+    <div class="section-head"><div class="section-num">2</div><h2 class="section-title">Trang 2: Cơ cấu dòng tiền</h2></div>
+    <p class="lead">Trang này đi sâu vào việc bóc tách nguồn hình thành dòng tiền và phương thức phân bổ dòng tiền vào các đối tác tài chính.</p>
+    
+    <div class="shot">
+      <img src="image_d35f03.png" alt="Trang Cơ cấu dòng tiền">
+      <div class="shot-cap">Giao diện thực tế Trang Cơ cấu dòng tiền — Biểu đồ thác nước và hệ thống ngân hàng</div>
+    </div>
+
+    <div class="visual-grid">
+      <div class="visual-card"><div class="visual-emoji">🌊</div><div><div class="visual-name">Biến động dòng tiền theo khối (Waterfall)</div><div class="visual-desc">Biểu đồ thác nước minh họa đóng góp ròng của các khối (Xây lắp, Đầu tư, Tài chính...) vào sự thay đổi dòng tiền chung.</div></div></div>
+      <div class="visual-card"><div class="visual-emoji">🏦</div><div><div class="visual-name">Số dư cuối kỳ theo ngân hàng</div><div class="visual-desc">Xếp hạng các ngân hàng đối tác đang lưu giữ lượng tiền của công ty (BIDV, VIB, Vietinbank, OCB...).</div></div></div>
+      <div class="visual-card"><div class="visual-emoji">⚙️</div><div><div class="visual-name">Dòng tiền từ hoạt động chuyên biệt</div><div class="visual-desc">Phân tách chi tiết dòng tiền ra/vào theo các hoạt động kinh doanh và xây lắp.</div></div></div>
+    </div>
+  </section>
+
+  <!-- 3. Quản lý Thu - Chi -->
+  <section class="section" id="s3">
+    <div class="section-head"><div class="section-num">3</div><h2 class="section-title">Trang 3: Quản lý Thu - Chi</h2></div>
+    <p class="lead">Trang chuyên trách kiểm soát nhịp độ dòng tiền ra và vào chi tiết theo chuỗi ngày trong tháng và các nghiệp vụ giao dịch thực tế.</p>
+    
+    <div class="shot">
+      <img src="image_d35ee2.png" alt="Trang Quản lý Thu Chi">
+      <div class="shot-cap">Giao diện thực tế Trang Quản lý Thu - Chi — Theo dõi theo ngày và bảng chi tiết giao dịch</div>
+    </div>
+
+    <table class="kpi-table">
+      <thead><tr><th>Thành phần giao diện</th><th>Chức năng & Hướng dẫn sử dụng</th></tr></thead>
+      <tbody>
+        <tr><td><b>Biểu đồ Ngày trong tháng (Combo Chart)</b></td><td>Theo dõi sát sao dòng thu/chi phát sinh hàng ngày, giúp phát hiện nhanh các đỉnh giải ngân hoặc thu hồi đột biến.</td></tr>
+        <tr><td><b>So sánh Thu - Chi theo Khối</b></td><td>Đặt cạnh nhau cột Thu và Chi của từng khối kinh doanh để kiểm soát tình trạng chi vượt thu ngắn hạn.</td></tr>
+        <tr><td><b>Bảng chi tiết Thu - Chi (TableEx)</b></td><td>Liệt kê chứng từ chi tiết (Ngày, Đơn vị, Khối, Vụ việc, Khách hàng, Diễn giải, Giá trị Thu/Chi) hỗ trợ tra cứu giao dịch.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 4. Tiền & tương đương tiền -->
+  <section class="section" id="s4">
+    <div class="section-head"><div class="section-num">4</div><h2 class="section-title">Trang 4: Tiền & tương đương tiền</h2></div>
+    <p class="lead">Trang quản trị toàn bộ danh mục thanh khoản của doanh nghiệp, bao gồm tiền gửi không kỳ hạn (KKH) và tiền gửi có kỳ hạn (CKH).</p>
+    
+    <div class="shot">
+      <img src="image_d35c39.png" alt="Tiền và tương đương tiền">
+      <div class="shot-cap">Giao diện thực tế Trang Tiền & tương đương tiền — Phân tích KKH, CKH</div>
+    </div>
+
+    <div class="visual-grid">
+      <div class="visual-card"><div class="visual-emoji">🍩</div><div><div class="visual-name">Tỷ trọng tiền gửi CKH & KKH</div><div class="visual-desc">Biểu đồ Donut phân tích phân loại tiền gửi theo kỳ hạn và tỷ trọng phân bổ theo ngân hàng.</div></div></div>
+      <div class="visual-card"><div class="visual-emoji">📊</div><div><div class="visual-name">Số dư cuối kỳ KKH & CKH qua các tháng</div><div class="visual-desc">So sánh tổng thể nguồn vốn dự trữ thanh khoản qua chuỗi thời gian từ đầu năm đến nay.</div></div></div>
+      <div class="visual-card"><div class="visual-emoji">〰️</div><div><div class="visual-name">Dòng tiền KKH cuối kỳ so với kế hoạch</div><div class="visual-desc">Theo dõi độ lệch thực tế so với đường kế hoạch đối với dòng tiền gửi thanh khoản.</div></div></div>
+    </div>
+  </section>
+
+  <!-- 5. Báo cáo tổng hợp -->
+  <section class="section" id="s5">
+    <div class="section-head"><div class="section-num">5</div><h2 class="section-title">Trang 5: Báo cáo tổng hợp</h2></div>
+    <p class="lead">Trang báo cáo theo chuẩn mực tài chính dạng ma trận đa kỳ, hỗ trợ kết xuất số liệu phục vụ cho công tác quản trị cấp cao.</p>
+    
+    <div class="shot">
+      <img src="image_d35c1b.png" alt="Báo cáo tổng hợp">
+      <div class="shot-cap">Giao diện thực tế Trang Báo cáo tổng hợp — Ma trận tài chính đa kỳ</div>
+    </div>
+
+    <div class="recipe">
+      <div class="recipe-q"><span class="qmark">Cấu trúc</span> Bảng Dòng tiền tổng hợp & Chi tiết vụ việc</div>
+      <ol>
+        <li><b>Phân cấp ma trận chuẩn tài chính:</b> Hiển thị đầy đủ từ A. Số dư đầu kỳ, B. Thu trong kỳ, C. Chi trong kỳ đến D. Số dư cuối kỳ.</li>
+        <li><b>Tính năng Khoan dữ liệu (Expand/Collapse):</b> Sử dụng các dấu [+] và [-] để mở rộng hoặc thu gọn các hạng mục xem chi tiết.</li>
+        <li><b>Định dạng trực quan:</b> Các cột số liệu tích hợp thanh dữ liệu (Data Bars) giúp nhận diện nhanh quy mô của từng đơn vị hoặc vụ việc.</li>
+      </ol>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <strong>ACC1 — Tổng Công ty Xây dựng Số 1 - CTCP</strong><br>
+  Hướng dẫn sử dụng Dashboard Dòng tiền - TCKHTT (Phiên bản 5 Trang) · Power BI · 2026
+</footer>
+
+</body>
+</html>
