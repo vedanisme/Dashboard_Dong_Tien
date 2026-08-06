@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hướng dẫn sử dụng Dashboard Dòng tiền - TCKHTT (5 Trang)</title>
+<title>Hướng dẫn sử dụng Dashboard Dòng tiền - TCKHTT (ACC1)</title>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -67,16 +67,10 @@
   .kpi-table tbody tr:hover { background: #D6E8F7; }
   .kpi-table td { padding: 12px 16px; font-size: 13px; vertical-align: top; border-bottom: 1px solid #EEF4FA; line-height: 1.6; }
   .kpi-table td:first-child { font-weight: 700; color: var(--blue-dark); font-size: 12.5px; }
-  .visual-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
-  .visual-card { background: var(--white); border: 1px solid #DDE8F2; border-radius: 10px; padding: 14px 16px; display: flex; gap: 12px; align-items: flex-start; transition: box-shadow 0.2s; }
-  .visual-card:hover { box-shadow: 0 4px 14px rgba(12,61,110,0.08); }
-  .visual-emoji { font-size: 22px; flex-shrink: 0; }
-  .visual-name { font-size: 13px; font-weight: 700; color: var(--blue-dark); margin-bottom: 4px; }
-  .visual-desc { font-size: 12px; color: var(--gray-500); line-height: 1.55; }
   .toc { background: var(--white); border: 1px solid #DDE8F2; border-radius: 12px; padding: 20px 24px; margin-bottom: 40px; }
   .toc h3 { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--blue-dark); margin-bottom: 12px; }
-  .toc ol { list-style: none; counter-reset: toc; columns: 1; }
-  .toc li { counter-increment: toc; padding: 5px 0 5px 30px; position: relative; font-size: 13.5px; }
+  .toc ol { list-style: none; counter-reset: toc; columns: 2; column-gap: 32px; }
+  .toc li { counter-increment: toc; padding: 5px 0 5px 30px; position: relative; font-size: 13.5px; break-inside: avoid; }
   .toc li::before { content: counter(toc); position: absolute; left: 0; top: 5px; width: 20px; height: 20px; background: var(--green-light); color: var(--blue-dark); border-radius: 50%; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
   .toc a { color: var(--gray-700); text-decoration: none; }
   .toc a:hover { color: var(--blue-dark); text-decoration: underline; }
@@ -89,21 +83,38 @@
   .recipe ol { list-style: none; counter-reset: rstep; }
   .recipe ol li { counter-increment: rstep; position: relative; padding: 5px 0 5px 32px; font-size: 13.5px; color: var(--gray-700); line-height: 1.55; }
   .recipe ol li::before { content: counter(rstep); position: absolute; left: 0; top: 4px; width: 22px; height: 22px; background: var(--green-light); color: var(--blue-dark); border-radius: 50%; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+  .kbd { display: inline-block; background: var(--gray-100); border: 1px solid #CBD3DB; border-bottom-width: 2px; border-radius: 5px; padding: 1px 7px; font-size: 12px; font-weight: 600; color: var(--gray-900); }
+  .faq-item { border-bottom: 1px solid #E2EBF3; padding: 14px 0; }
+  .faq-q { font-size: 14px; font-weight: 700; color: var(--blue-dark); margin-bottom: 6px; }
+  .faq-q::before { content: 'Hỏi: '; color: var(--red); }
+  .faq-a { font-size: 13px; color: var(--gray-700); line-height: 1.65; }
+  .faq-a::before { content: 'Đáp: '; font-weight: 700; color: var(--blue-dark); }
+  .callout { display: flex; gap: 14px; align-items: flex-start; background: var(--green-light); border: 1px solid #BFE3CC; border-radius: 12px; padding: 16px 20px; margin: 18px 0; }
+  .callout .ic { font-size: 22px; flex-shrink: 0; }
+  .callout-t { font-size: 13.5px; color: #155A30; line-height: 1.65; }
+  .callout-t b { color: var(--blue-dark); }
+  .visual-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+  .visual-card { background: var(--white); border: 1px solid #DDE8F2; border-radius: 10px; padding: 14px 16px; display: flex; gap: 12px; align-items: flex-start; }
+  .visual-emoji { font-size: 22px; flex-shrink: 0; }
+  .visual-name { font-size: 13px; font-weight: 700; color: var(--blue-dark); margin-bottom: 4px; }
+  .visual-desc { font-size: 12px; color: var(--gray-500); line-height: 1.55; }
   footer { background: var(--blue-dark); text-align: center; padding: 28px 40px; font-size: 12px; color: rgba(255,255,255,0.4); letter-spacing: 0.03em; }
   footer strong { color: rgba(255,255,255,0.7); font-weight: 600; }
+  @media print { .toc ol { columns: 2; } .shot img { box-shadow: none; } section, .recipe { break-inside: avoid; } }
+  @media (max-width: 600px) { .toc ol { columns: 1; } }
 </style>
 </head>
 <body>
 
 <header class="hero">
   <div class="hero-inner">
-    <div class="hero-badge"><span></span> Power BI / Dashboard · ACC1 · 5 Trang Báo Cáo</div>
+    <div class="hero-badge"><span></span> Power BI / Dashboard · ACC1 · 6 Trang Báo Cáo</div>
     <h1>Hướng dẫn sử dụng<br>Dashboard Dòng tiền - TCKHTT</h1>
-    <p class="hero-sub">Tài liệu hướng dẫn trực quan dành cho người dùng cuối</p>
+    <p class="hero-sub">Cẩm nang chi tiết hướng dẫn đọc hiểu, khai thác dữ liệu và xử lý sự cố dành cho người dùng cuối</p>
     <div class="hero-meta">
       <div class="hero-meta-item"><span class="hero-meta-label">Báo cáo</span><span class="hero-meta-value">Dòng tiền - TCKHTT</span></div>
       <div class="hero-meta-item"><span class="hero-meta-label">Nền tảng</span><span class="hero-meta-value">Power BI</span></div>
-      <div class="hero-meta-item"><span class="hero-meta-label">Phạm vi</span><span class="hero-meta-value">05 Trang chính & Bộ lọc</span></div>
+      <div class="hero-meta-item"><span class="hero-meta-label">Đối tượng</span><span class="hero-meta-value">Ban Lãnh đạo, CFO, Quản lý</span></div>
       <div class="hero-meta-item"><span class="hero-meta-label">Cập nhật</span><span class="hero-meta-value">08-2026</span></div>
     </div>
   </div>
@@ -114,183 +125,203 @@
   <div class="toc">
     <h3>Nội dung tài liệu hướng dẫn</h3>
     <ol>
-      <li><a href="#filters">Hướng dẫn sử dụng hệ thống Bộ lọc (Slicers)</a></li>
-      <li><a href="#matrix-guide">Hướng dẫn dùng dấu [+] và [-] để xem cấp độ thấp hơn</a></li>
-      <li><a href="#s1">Trang 1: Tổng quan (Overview)</a></li>
-      <li><a href="#s2">Trang 2: Cơ cấu dòng tiền</a></li>
-      <li><a href="#s3">Trang 3: Quản lý Thu - Chi</a></li>
-      <li><a href="#s4">Trang 4: Tiền & tương đương tiền</a></li>
-      <li><a href="#s5">Trang 5: Báo cáo tổng hợp</a></li>
+      <li><a href="#s1">Giới thiệu tổng quan báo cáo</a></li>
+      <li><a href="#s2">Hướng dẫn sử dụng hệ thống Bộ lọc (Slicers)</a></li>
+      <li><a href="#s3">Thao tác mở rộng bảng với dấu [+] và [-]</a></li>
+      <li><a href="#s4">Trang 1: Tổng quan (Overview)</a></li>
+      <li><a href="#s5">Trang 2: Cơ cấu dòng tiền</a></li>
+      <li><a href="#s6">Trang 3: Quản lý Thu - Chi</a></li>
+      <li><a href="#s7">Trang 4: Tiền & tương đương tiền</a></li>
+      <li><a href="#s8">Trang 5: Báo cáo tổng hợp</a></li>
+      <li><a href="#s9">Trang 6: Kế hoạch (Budget & Performance)</a></li>
+      <li><a href="#s10">Tình huống thường gặp trong vận hành</a></li>
+      <li><a href="#s11">Câu hỏi thường gặp & xử lý sự cố</a></li>
     </ol>
   </div>
 
-  <!-- PHẦN 1: HƯỚNG DẪN BỘ LỌC -->
-  <section class="section" id="filters">
-    <div class="section-head"><div class="section-num">⚙️</div><h2 class="section-title">Hướng dẫn sử dụng hệ thống Bộ lọc (Slicers)</h2></div>
-    <p class="lead">Dashboard tích hợp các thanh bộ lọc thông minh ở phía trên cùng của mỗi trang giúp bạn dễ dàng khoanh vùng dữ liệu cần phân tích:</p>
-    
-    <table class="kpi-table" style="margin-bottom: 20px;">
-      <thead><tr><th>Tên Bộ Lọc</th><th>Cách Thao Tác</th><th>Tác Dụng & Lưu Ý</th></tr></thead>
-      <tbody>
-        <tr>
-          <td><b>Ngày / Tháng báo cáo</b></td>
-          <td>Nhấp vào ô chọn thời gian để mở lịch hoặc chọn nhanh tháng cần xem (ví dụ: Tháng 2, Tháng 8).</td>
-          <td>Thay đổi mốc thời gian hiển thị cho toàn bộ trang báo cáo. Hãy chọn đúng kỳ báo cáo để số liệu phản ánh chính xác.</td>
-        </tr>
-        <tr>
-          <td><b>Đơn vị</b></td>
-          <td>Nhấp vào menu thả xuống (Dropdown) và chọn tên đơn vị thành viên.</td>
-          <td>Lọc số liệu chuyên sâu dành riêng cho một công ty thành viên cụ thể (ví dụ: CTY TM và DV CC1, Việt Hưng, Việt Quang...).</td>
-        </tr>
-        <tr>
-          <td><b>Tiền tệ</b></td>
-          <td>Nhấp vào menu thả xuống để chọn loại đơn vị hiển thị.</td>
-          <td>Mặc định hiển thị chuẩn theo đơn vị Tỷ VNĐ để thuận tiện cho việc đọc báo cáo quy mô lớn.</td>
-        </tr>
-        <tr>
-          <td><b>Tên khối</b></td>
-          <td>Chọn khối hoạt động tương ứng trong danh sách thả xuống.</td>
-          <td>Lọc dữ liệu theo từng khối chiến lược: Xây lắp, Kinh doanh, Tài Chính, Văn phòng, Đầu Tư.</td>
-        </tr>
-        <tr>
-          <td><b>Tên vụ việc</b></td>
-          <td>Chọn dự án hoặc vụ việc cụ thể từ danh sách.</td>
-          <td>Cô lập số liệu tài chính riêng cho một Dự án hoặc Vụ việc cụ thể (ví dụ: Bệnh viện Đa khoa Bình Dương, các gói thầu XL...).</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="recipe">
-      <div class="recipe-q"><span class="qmark">Mẹo</span> Lưu ý khi dùng bộ lọc</div>
-      <ol>
-        <li><b>Đồng bộ xuyên trang:</b> Các bộ lọc quan trọng như Đơn vị và Tiền tệ có tính năng đồng bộ tự động. Khi bạn chọn ở trang này, chuyển sang trang khác thông tin vẫn được giữ nguyên.</li>
-        <li><b>Xóa bộ lọc:</b> Nhấp vào tùy chọn "All" hoặc dấu "X" trên bộ lọc để đưa trạng thái báo cáo về mức tổng quan toàn tập đoàn.</li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- PHẦN 2: HƯỚNG DẪN DÙNG DẤU + TRỪ XEM CẤP ĐỘ THẤP HƠN -->
-  <section class="section" id="matrix-guide">
-    <div class="section-head"><div class="section-num">➕</div><h2 class="section-title">Hướng dẫn sử dụng dấu [+] và [-] để xem cấp độ thấp hơn</h2></div>
-    <p class="lead">Trong các bảng ma trận tài chính (đặc biệt tại <b>Trang 5: Báo cáo tổng hợp</b>), dữ liệu được tổ chức theo dạng phân cấp. Điều này giúp giao diện gọn gàng nhưng vẫn cho phép bạn bóc tách chi tiết khi cần.</p>
-    
-    <div class="recipe">
-      <div class="recipe-q"><span class="qmark">Thao tác</span> Cách bóc tách dữ liệu bảng ma trận</div>
-      <ol>
-        <li><b>Nhận diện biểu tượng:</b> Ở cột đầu tiên (cột Hạng mục hoặc Vụ việc), bạn sẽ thấy các dấu cộng <code style="background:#e2ebf3;padding:2px 6px;border-radius:4px;font-weight:bold;">[+]</code> hoặc dấu trừ <code style="background:#e2ebf3;padding:2px 6px;border-radius:4px;font-weight:bold;">[-]</code> nằm bên trái tên nhóm.</li>
-        <li><b>Mở rộng xem chi tiết (Dấu [+] ):</b> Nhấp trực tiếp vào dấu cộng <code style="background:#e2ebf3;padding:2px 6px;border-radius:4px;font-weight:bold;">[+]</code> của một mục tổng (ví dụ: B. THU TRONG KỲ) để hệ thống bung ra các tiểu mục con chi tiết bên trong.</li>
-        <li><b>Thu gọn thông tin (Dấu [-] ):</b> Nhấp vào dấu trừ <code style="background:#e2ebf3;padding:2px 6px;border-radius:4px;font-weight:bold;">[-]</code> nếu bạn muốn thu gọn bảng lại, chỉ hiển thị số liệu tổng quan ở cấp cao nhất.</li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- 1. Tổng quan -->
+  <!-- 1 -->
   <section class="section" id="s1">
-    <div class="section-head"><div class="section-num">1</div><h2 class="section-title">Trang 1: Tổng quan (Overview)</h2></div>
-    <p class="lead">Trang Tổng quan hoạt động như bảng điều khiển trung tâm, cung cấp cái nhìn tổng thể và nhanh chóng nhất về sức khỏe tài chính toàn tập đoàn.</p>
-    
-    <div class="shot">
-      <img src="image_d35f3b.png" alt="Trang Tổng quan Dashboard">
-      <div class="shot-cap">Giao diện thực tế Trang Tổng quan — Thẻ KPI và biểu đồ phân bổ đơn vị</div>
-    </div>
-
-    <h3 style="font-family:'Playfair Display',serif;color:var(--blue-dark);font-size:16px;margin:18px 0 12px">Các chỉ số KPI cốt lõi</h3>
-    <table class="kpi-table">
-      <thead><tr><th>Chỉ số / Thẻ (Card)</th><th>Ý nghĩa & Cách đọc</th></tr></thead>
-      <tbody>
-        <tr><td>Số dư tiền tập đoàn</td><td>Tổng quy mô tiền mặt và tiền gửi hiện có của toàn hệ thống tại ngày báo cáo.</td></tr>
-        <tr><td>Cân đối thu - chi</td><td>Chênh lệch ròng giữa Tổng thu và Tổng chi. Tự động đổi màu động (Xanh khi thặng dư, Đỏ khi thâm hụt) giúp cảnh báo tức thời.</td></tr>
-        <tr><td>Tổng thu / Tổng chi lũy kế</td><td>Tổng giá trị tiền thực hiện tính từ đầu kỳ báo cáo đến mốc thời gian hiện tại.</td></tr>
-      </tbody>
-    </table>
-
-    <h3 style="font-family:'Playfair Display',serif;color:var(--blue-dark);font-size:16px;margin:18px 0 12px">Biểu đồ phân tích chính</h3>
+    <div class="section-head"><div class="section-num">1</div><h2 class="section-title">Giới thiệu tổng quan báo cáo</h2></div>
+    <p class="lead">Dashboard <strong>Dòng tiền - TCKHTT</strong> của <b>Tổng Công ty Xây dựng Số 1 - CTCP (ACC1)</b> được thiết kế nhằm cung cấp cái nhìn toàn diện về sức khỏe tài chính, tình hình thu chi, thanh khoản và quản trị ngân sách.</p>
     <div class="visual-grid">
-      <div class="visual-card"><div class="visual-emoji">📈</div><div><div class="visual-name">Số dư tiền cuối kỳ theo thời gian</div><div class="visual-desc">Biểu đồ đường thể hiện xu hướng biến động số dư tiền ròng qua từng tháng.</div></div></div>
-      <div class="visual-card"><div class="visual-emoji">📊</div><div><div class="visual-name">Số dư tiền cuối kỳ theo đơn vị</div><div class="visual-desc">Biểu đồ cột so sánh quy mô nắm giữ tiền mặt giữa các đơn vị thành viên.</div></div></div>
-      <div class="visual-card"><div class="visual-emoji">🎯</div><div><div class="visual-name">Tỷ lệ đạt kế hoạch thu / chi</div><div class="visual-desc">Biểu đồ đánh giá mức độ hoàn thành chỉ tiêu thực hiện so với ngân sách kế hoạch được giao.</div></div></div>
+      <div class="visual-card"><div class="visual-emoji">🎯</div><div><div class="visual-name">Mục đích</div><div class="visual-desc">Hỗ trợ Ban Lãnh đạo và các cấp quản lý theo dõi sát sao dòng tiền thực tế so với kế hoạch để đưa ra quyết định điều hành kịp thời.</div></div></div>
+      <div class="visual-card"><div class="visual-emoji">📊</div><div><div class="visual-name">Quy mô 6 trang</div><div class="visual-desc">Hệ thống phân chia thành 6 trang chuyên biệt từ tổng quan tập đoàn đến chi tiết từng dự án, ngân hàng và kế hoạch năm.</div></div></div>
     </div>
   </section>
 
-  <!-- 2. Cơ cấu dòng tiền -->
+  <!-- 2 -->
   <section class="section" id="s2">
-    <div class="section-head"><div class="section-num">2</div><h2 class="section-title">Trang 2: Cơ cấu dòng tiền</h2></div>
-    <p class="lead">Trang này đi sâu vào việc bóc tách nguồn hình thành dòng tiền và phương thức phân bổ dòng tiền vào các đối tác tài chính.</p>
-    
-    <div class="shot">
-      <img src="image_d35f03.png" alt="Trang Cơ cấu dòng tiền">
-      <div class="shot-cap">Giao diện thực tế Trang Cơ cấu dòng tiền — Biểu đồ thác nước và hệ thống ngân hàng</div>
-    </div>
-
-    <div class="visual-grid">
-      <div class="visual-card"><div class="visual-emoji">🌊</div><div><div class="visual-name">Biến động dòng tiền theo khối (Waterfall)</div><div class="visual-desc">Biểu đồ thác nước minh họa đóng góp ròng của các khối (Xây lắp, Đầu tư, Tài chính...) vào sự thay đổi dòng tiền chung.</div></div></div>
-      <div class="visual-card"><div class="visual-emoji">🏦</div><div><div class="visual-name">Số dư cuối kỳ theo ngân hàng</div><div class="visual-desc">Xếp hạng các ngân hàng đối tác đang lưu giữ lượng tiền của công ty (BIDV, VIB, Vietinbank, OCB...).</div></div></div>
-      <div class="visual-card"><div class="visual-emoji">⚙️</div><div><div class="visual-name">Dòng tiền từ hoạt động chuyên biệt</div><div class="visual-desc">Phân tách chi tiết dòng tiền ra/vào theo các hoạt động kinh doanh và xây lắp.</div></div></div>
+    <div class="section-head"><div class="section-num">2</div><h2 class="section-title">Hướng dẫn sử dụng hệ thống Bộ lọc (Slicers)</h2></div>
+    <p class="lead">Các thanh bộ lọc được bố trí ở phía trên cùng của mỗi trang báo cáo. Hãy sử dụng chúng để cô lập dữ liệu theo nhu cầu:</p>
+    <table class="kpi-table" style="margin-bottom: 16px;">
+      <thead><tr><th>Loại Bộ Lọc</th><th>Cách Thao Tác</th><th>Tác Dụng</th></tr></thead>
+      <tbody>
+        <tr><td><b>Tháng / Ngày báo cáo</b></td><td>Nhấp chọn khoảng thời gian hoặc tháng cụ thể trên thanh lọc.</td><td>Thay đổi mốc thời gian hiển thị dữ liệu cho toàn bộ trang.</td></tr>
+        <tr><td><b>Đơn vị</b></td><td>Chọn menu thả xuống và tích chọn công ty thành viên.</td><td>Lọc số liệu riêng cho một đơn vị cụ thể (vd: CTY TM và DV CC1, Việt Hưng...).</td></tr>
+        <tr><td><b>Tiền tệ</b></td><td>Chọn đơn vị hiển thị mong muốn.</td><td>Quy đổi định dạng hiển thị (mặc định chuẩn là Tỷ VNĐ).</td></tr>
+        <tr><td><b>Tên khối / Vụ việc</b></td><td>Chọn khối chiến lược hoặc dự án cụ thể.</td><td>Thu hẹp phạm vi phân tích chuyên sâu theo từng mảng hoạt động hoặc dự án.</td></tr>
+      </tbody>
+    </table>
+    <div class="tip" style="background:var(--blue-xlight);border:1px solid #B5D4F4;border-left:4px solid var(--blue-mid);border-radius:0 10px 10px 0;padding:12px 16px;font-size:13px;color:var(--blue-dark);">
+      💡 <strong>Lưu ý đồng bộ:</strong> Các bộ lọc quan trọng (như Đơn vị, Tiền tệ) có tính năng đồng bộ tự động giữa các trang giúp bạn không phải chọn lại khi chuyển tab.
     </div>
   </section>
 
-  <!-- 3. Quản lý Thu - Chi -->
+  <!-- 3 -->
   <section class="section" id="s3">
-    <div class="section-head"><div class="section-num">3</div><h2 class="section-title">Trang 3: Quản lý Thu - Chi</h2></div>
-    <p class="lead">Trang chuyên trách kiểm soát nhịp độ dòng tiền ra và vào chi tiết theo chuỗi ngày trong tháng và các nghiệp vụ giao dịch thực tế.</p>
-    
-    <div class="shot">
-      <img src="image_d35ee2.png" alt="Trang Quản lý Thu Chi">
-      <div class="shot-cap">Giao diện thực tế Trang Quản lý Thu - Chi — Theo dõi theo ngày và bảng chi tiết giao dịch</div>
+    <div class="section-head"><div class="section-num">3</div><h2 class="section-title">Thao tác mở rộng bảng với dấu [+] và [-]</h2></div>
+    <p class="lead">Trên các bảng ma trận tài chính (tại Trang 5 và Trang 6), dữ liệu được trình bày theo dạng phân cấp để giao diện gọn gàng nhưng vẫn đảm bảo tính chi tiết.</p>
+    <div class="recipe">
+      <div class="recipe-q"><span class="qmark">Cách dùng</span> Mở rộng hoặc thu gọn tiểu mục</div>
+      <ol>
+        <li><b>Nhận diện:</b> Ở cột đầu tiên của bảng, tìm các biểu tượng dấu cộng <code class="kbd">[+]</code> hoặc dấu trừ <code class="kbd">[-]</code> nằm bên trái tên nhóm danh mục.</li>
+        <li><b>Xem chi tiết (Dấu [+] ):</b> Nhấp chuột trực tiếp vào dấu <code class="kbd">[+]</code> của một mục tổng (ví dụ: <i>B. THU TRONG KỲ</i>) để hệ thống bung ra các tiểu mục con bên trong.</li>
+        <li><b>Thu gọn (Dấu [-] ):</b> Nhấp vào dấu <code class="kbd">[-]</code> để ẩn các tiểu mục con và đưa bảng về lại trạng thái tổng quan.</li>
+      </ol>
     </div>
+  </section>
 
-    <table class="kpi-table">
-      <thead><tr><th>Thành phần giao diện</th><th>Chức năng & Hướng dẫn sử dụng</th></tr></thead>
+  <!-- 4 -->
+  <section class="section" id="s4">
+    <div class="section-head"><div class="section-num">4</div><h2 class="section-title">Trang 1: Tổng quan (Overview)</h2></div>
+    <div class="shot"><img src="https://vedanisme.github.io/Dashboard_Dong_Tien/Hình dash 1.png" alt="Trang Tổng quan Dashboard"><div class="shot-cap">Trang Tổng quan — Cung cấp các thẻ KPI và biểu đồ phân bổ tập đoàn</div></div>
+    <p class="lead">Trang trung tâm điều hành giúp nắm bắt nhanh sức khỏe tài chính thông qua các thẻ chỉ số cốt lõi và biểu đồ xu hướng:</p>
+    <div class="visual-grid">
+      <div class="visual-card"><div class="visual-emoji">📌</div><div><div class="visual-name">Thẻ KPI cốt lõi</div><div class="visual-desc">Hiển thị Số dư tiền tập đoàn, Tổng thu/chi lũy kế và Chênh lệch thu - chi (tự động đổi màu xanh khi thặng dư, đỏ khi thâm hụt).</div></div></div>
+      <div class="visual-card"><div class="visual-emoji">📈</div><div><div class="visual-name">Biểu đồ xu hướng & đơn vị</div><div class="visual-desc">Theo dõi biến động số dư tiền cuối kỳ theo thời gian (Line chart) và so sánh giữa các công ty thành viên (Column chart).</div></div></div>
+      <div class="visual-card"><div class="visual-emoji">🎯</div><div><div class="visual-name">Tỷ lệ đạt kế hoạch thu/chi</div><div class="visual-desc">Đánh giá trực quan mức độ hoàn thành chỉ tiêu thực hiện so với ngân sách kế hoạch được giao.</div></div></div>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section class="section" id="s5">
+    <div class="section-head"><div class="section-num">5</div><h2 class="section-title">Trang 2: Cơ cấu dòng tiền</h2></div>
+    <div class="shot"><img src="https://vedanisme.github.io/Dashboard_Dong_Tien/Hình dash 2.png" alt="Trang Cơ cấu dòng tiền"><div class="shot-cap">Trang Cơ cấu dòng tiền — Bóc tách nguồn tiền theo khối và ngân hàng</div></div>
+    <p class="lead">Trang này giúp phân tích sâu hơn về nguồn gốc dòng tiền và nơi cất giữ tài sản thanh khoản:</p>
+    <div class="visual-grid">
+      <div class="visual-card"><div class="visual-emoji">🌊</div><div><div class="visual-name">Biểu đồ thác nước (Waterfall)</div><div class="visual-desc">Thể hiện mức độ đóng góp tăng/giảm dòng tiền ròng của từng khối chiến lược (Xây lắp, Đầu tư, Tài chính, Văn phòng...).</div></div></div>
+      <div class="visual-card"><div class="visual-emoji">🏦</div><div><div class="visual-name">Phân bổ ngân hàng</div><div class="visual-desc">Xếp hạng Top các ngân hàng đối tác đang lưu giữ lượng tiền của công ty (BIDV, VIB, Vietinbank...) và tỷ trọng tiền gửi có kỳ hạn.</div></div></div>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section class="section" id="s6">
+    <div class="section-head"><div class="section-num">6</div><h2 class="section-title">Trang 3: Quản lý Thu - Chi</h2></div>
+    <div class="shot"><img src="https://vedanisme.github.io/Dashboard_Dong_Tien/Hình dash 3.png" alt="Trang Quản lý Thu Chi"><div class="shot-cap">Trang Quản lý Thu - Chi — Kiểm soát nhịp độ theo ngày và bảng chứng từ</div></div>
+    <p class="lead">Chuyên trang kiểm soát các giao dịch phát sinh thực tế hàng ngày và tra cứu chứng từ chi tiết:</p>
+    <table class="kpi-table" style="margin-top: 12px;">
+      <thead><tr><th>Thành phần</th><th>Cách đọc & Khai thác</th></tr></thead>
       <tbody>
-        <tr><td><b>Biểu đồ Ngày trong tháng (Combo Chart)</b></td><td>Theo dõi sát sao dòng thu/chi phát sinh hàng ngày, giúp phát hiện nhanh các đỉnh giải ngân hoặc thu hồi đột biến.</td></tr>
-        <tr><td><b>So sánh Thu - Chi theo Khối</b></td><td>Đặt cạnh nhau cột Thu và Chi của từng khối kinh doanh để kiểm soát tình trạng chi vượt thu ngắn hạn.</td></tr>
-        <tr><td><b>Bảng chi tiết Thu - Chi (TableEx)</b></td><td>Liệt kê chứng từ chi tiết (Ngày, Đơn vị, Khối, Vụ việc, Khách hàng, Diễn giải, Giá trị Thu/Chi) hỗ trợ tra cứu giao dịch.</td></tr>
+        <tr><td><b>Biểu đồ ngày trong tháng</b></td><td>Thống kê phát sinh Thu/Chi từ D1 đến D31, giúp nhận diện ngay các mốc giải ngân hoặc thu hồi đột biến.</td></tr>
+        <tr><td><b>Bảng chi tiết chứng từ (TableEx)</b></td><td>Liệt kê chi tiết Ngày, Đơn vị, Khối, Vụ việc Cấp 1, Khách hàng, Diễn giải và số tiền Thu/Chi phục vụ tra cứu.</td></tr>
       </tbody>
     </table>
   </section>
 
-  <!-- 4. Tiền & tương đương tiền -->
-  <section class="section" id="s4">
-    <div class="section-head"><div class="section-num">4</div><h2 class="section-title">Trang 4: Tiền & tương đương tiền</h2></div>
-    <p class="lead">Trang quản trị toàn bộ danh mục thanh khoản của doanh nghiệp, bao gồm tiền gửi không kỳ hạn (KKH) và tiền gửi có kỳ hạn (CKH).</p>
-    
-    <div class="shot">
-      <img src="image_d35c39.png" alt="Tiền và tương đương tiền">
-      <div class="shot-cap">Giao diện thực tế Trang Tiền & tương đương tiền — Phân tích KKH, CKH</div>
-    </div>
-
+  <!-- 7 -->
+  <section class="section" id="s7">
+    <div class="section-head"><div class="section-num">7</div><h2 class="section-title">Trang 4: Tiền & tương đương tiền</h2></div>
+    <div class="shot"><img src="image_d35c39.png" alt="Trang Tiền và tương đương tiền"><div class="shot-cap">Trang Tiền & tương đương tiền — Quản trị thanh khoản KKH và CKH</div></div>
+    <p class="lead">Quản lý toàn bộ danh mục dự trữ thanh khoản, tối ưu hóa sinh lời và an toàn vốn:</p>
     <div class="visual-grid">
-      <div class="visual-card"><div class="visual-emoji">🍩</div><div><div class="visual-name">Tỷ trọng tiền gửi CKH & KKH</div><div class="visual-desc">Biểu đồ Donut phân tích phân loại tiền gửi theo kỳ hạn và tỷ trọng phân bổ theo ngân hàng.</div></div></div>
-      <div class="visual-card"><div class="visual-emoji">📊</div><div><div class="visual-name">Số dư cuối kỳ KKH & CKH qua các tháng</div><div class="visual-desc">So sánh tổng thể nguồn vốn dự trữ thanh khoản qua chuỗi thời gian từ đầu năm đến nay.</div></div></div>
-      <div class="visual-card"><div class="visual-emoji">〰️</div><div><div class="visual-name">Dòng tiền KKH cuối kỳ so với kế hoạch</div><div class="visual-desc">Theo dõi độ lệch thực tế so với đường kế hoạch đối với dòng tiền gửi thanh khoản.</div></div></div>
+      <div class="visual-card"><div class="visual-emoji">🍩</div><div><div class="visual-name">Tỷ trọng KKH & CKH</div><div class="visual-desc">Biểu đồ Donut phân tích phân loại tiền gửi theo kỳ hạn và tỷ trọng phân bổ tại các ngân hàng đối tác.</div></div></div>
+      <div class="visual-card"><div class="visual-emoji">📊</div><div><div class="visual-name">Biểu đồ dự trữ thanh khoản</div><div class="visual-desc">So sánh tổng thể nguồn vốn dự trữ và đường cong thực tế so với kế hoạch qua các tháng.</div></div></div>
     </div>
   </section>
 
-  <!-- 5. Báo cáo tổng hợp -->
-  <section class="section" id="s5">
-    <div class="section-head"><div class="section-num">5</div><h2 class="section-title">Trang 5: Báo cáo tổng hợp</h2></div>
-    <p class="lead">Trang báo cáo theo chuẩn mực tài chính dạng ma trận đa kỳ, hỗ trợ kết xuất số liệu phục vụ cho công tác quản trị cấp cao.</p>
-    
-    <div class="shot">
-      <img src="image_d35c1b.png" alt="Báo cáo tổng hợp">
-      <div class="shot-cap">Giao diện thực tế Trang Báo cáo tổng hợp — Ma trận tài chính đa kỳ</div>
+  <!-- 8 -->
+  <section class="section" id="s8">
+    <div class="section-head"><div class="section-num">8</div><h2 class="section-title">Trang 5: Báo cáo tổng hợp</h2></div>
+    <div class="shot"><img src="https://vedanisme.github.io/Dashboard_Dong_Tien/Hình dash 5.png" alt="Trang Báo cáo tổng hợp"><div class="shot-cap">Trang Báo cáo tổng hợp — Ma trận tài chính đa kỳ chuẩn mực</div></div>
+    <p class="lead">Báo cáo dạng ma trận tài chính đa kỳ, tổng hợp số liệu từ Tháng 1 đến Tháng 8 phục vụ cấp quản lý:</p>
+    <div class="recipe">
+      <div class="recipe-q"><span class="qmark">Cấu trúc</span> Ma trận dòng tiền đa kỳ</div>
+      <ol>
+        <li><b>Phân cấp chuẩn mực:</b> Thể hiện đầy đủ từ <i>A. Tiền đầu kỳ</i>, <i>B. Thu trong kỳ</i>, <i>C. Chi trong kỳ</i> đến <i>D. Tiền cuối kỳ</i>.</li>
+        <li><b>Hỗ trợ Data Bars:</b> Tích hợp thanh dữ liệu trực quan giúp nhận diện nhanh quy mô lớn nhỏ của từng đơn vị/vụ việc trên ma trận.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 9 -->
+  <section class="section" id="s9">
+    <div class="section-head"><div class="section-num">9</div><h2 class="section-title">Trang 6: Kế hoạch (Budget & Performance)</h2></div>
+    <div class="shot"><img src="https://vedanisme.github.io/Dashboard_Dong_Tien/Hình dash 6.png" alt="Trang Kế hoạch Dashboard"><div class="shot-cap">Trang Kế hoạch — So sánh Thực hiện (TH) và Kế hoạch (KH) toàn diện</div></div>
+    <p class="lead">Đo lường hiệu suất thực thi ngân sách dòng tiền theo tháng, lũy kế và cả năm:</p>
+    <table class="kpi-table" style="margin-top: 12px;">
+      <thead><tr><th>Thành phần</th><th>Ý nghĩa & Cách khai thác</th></tr></thead>
+      <tbody>
+        <tr><td><b>Bảng Dòng tiền kế hoạch</b></td><td>Đối chiếu chi tiết các cột <i>TH tháng</i>, <i>KH tháng</i>, <i>%KH tháng</i>, <i>TH lũy kế</i>, <i>KH lũy kế</i>, <i>%KH lũy kế</i>, <i>KH năm</i> và <i>%KH năm</i>.</td></tr>
+        <tr><td><b>Danh mục vụ việc kế hoạch</b></td><td>Theo dõi sát tiến độ ngân sách của từng Dự án / Vụ việc Cấp 1 cụ thể.</td></tr>
+        <tr><td><b>Biểu đồ so sánh TH vs KH</b></td><td>Kết hợp cột Thực hiện (đậm), cột Kế hoạch (viền) và đường % hoàn thành theo từng tháng (T01 - T12) để phát hiện nhanh rủi ro lệch pha ngân sách.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 10: Tình huống thường gặp -->
+  <section class="section" id="s10">
+    <div class="section-head"><div class="section-num">10</div><h2 class="section-title">Tình huống thường gặp trong vận hành</h2></div>
+
+    <div class="recipe">
+      <div class="recipe-q"><span class="qmark">Tôi muốn</span> biết đơn vị nào đang có dòng tiền bị thâm hụt</div>
+      <ol>
+        <li>Quan sát <i>các chỉ số</i>
+        <li>Chỉ số màu đỏ mang giá trị âm</li>
+        <li>Chỉ số màu xanh lá cây mang giá trị dương</li>
+        
+      </ol>
     </div>
 
     <div class="recipe">
-      <div class="recipe-q"><span class="qmark">Cấu trúc</span> Bảng Dòng tiền tổng hợp & Chi tiết vụ việc</div>
+      <div class="recipe-q"><span class="qmark">Tôi muốn</span> kiểm tra chi tiết các khoản giải ngân lớn phát sinh vào ngày nào trong tháng</div>
       <ol>
-        <li><b>Phân cấp ma trận chuẩn tài chính:</b> Hiển thị đầy đủ từ A. Số dư đầu kỳ, B. Thu trong kỳ, C. Chi trong kỳ đến D. Số dư cuối kỳ.</li>
-        <li><b>Tính năng Khoan dữ liệu (Expand/Collapse):</b> Sử dụng các dấu [+] và [-] để mở rộng hoặc thu gọn các hạng mục xem chi tiết.</li>
-        <li><b>Định dạng trực quan:</b> Các cột số liệu tích hợp thanh dữ liệu (Data Bars) giúp nhận diện nhanh quy mô của từng đơn vị hoặc vụ việc.</li>
+        <li>Chuyển sang <strong>Trang 3: Quản lý Thu - Chi</strong>.</li>
+        <li>Xem biểu đồ <i>Ngày trong tháng</i> để tìm các cột có giá trị vọt lên cao bất thường.</li>
+        <li>Sử dụng bảng <i>Chi tiết Thu - Chi</i> phía dưới, kết hợp bộ lọc ngày để truy xuất chính xác chứng từ và diễn giải giao dịch gốc.</li>
       </ol>
     </div>
+
+    <div class="recipe">
+      <div class="recipe-q"><span class="qmark">Tôi muốn</span> theo dõi tiến độ thực hiện kế hoạch năm của một Dự án/Vụ việc cụ thể</div>
+      <ol>
+        <li>Chuyển sang <strong>Trang 6: Kế hoạch</strong>.</li>
+        <li>Sử dụng bộ lọc <i>Tên vụ việc</i> ở thanh phía trên để chọn đúng dự án cần xem.</li>
+        <li>Đọc cột <code>%KH lũy kế</code> hoặc <code>%KH năm</code> trên bảng danh mục vụ việc để biết dự án đang vượt hay chậm tiến độ ngân sách.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 11: Câu hỏi thường gặp & xử lý sự cố -->
+  <section class="section" id="s11">
+    <div class="section-head"><div class="section-num">11</div><h2 class="section-title">Câu hỏi thường gặp &amp; xử lý sự cố</h2></div>
+    
+    <div class="faq-item">
+      <div class="faq-q">Biểu đồ hiển thị trống hoặc không có số liệu sau khi chọn bộ lọc?</div>
+      <div class="faq-a">Hiện tượng này xảy ra do sự kết hợp bộ lọc (ví dụ: chọn một Vụ việc không phát sinh trong Tháng đó). Hãy bấm vào dấu "X" hoặc chọn lại "All" trên các bộ lọc để làm mới trạng thái báo cáo.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Đơn vị tiền tệ trên báo cáo đang tính theo gì?</div>
+      <div class="faq-a">Mặc định hệ thống hiển thị theo đơn vị <strong>Tỷ VNĐ</strong>. Bạn có thể kiểm tra bộ lọc "Tiền tệ" ở góc trên thanh điều hướng để đảm bảo không bị nhầm lẫn quy mô số liệu. Đồng thời, có thể chuyển đổi sang <strong>Triệu VNĐ</strong> nếu có nhu cầu</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Làm thế nào để bỏ các bộ lọc chéo do vô tình bấm vào biểu đồ?</div>
+      <div class="faq-a">Khi bạn nhấp vào một cột trên biểu đồ, các biểu đồ khác sẽ bị lọc theo (lọc chéo). Chỉ cần bấm thêm một lần nữa vào chính cột đó hoặc bấm vào khoảng trống bất kỳ trên nền trắng của biểu đồ để hủy trạng thái chọn.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Dữ liệu trên Dashboard được cập nhật từ đâu và bao lâu một lần?</div>
+      <div class="faq-a">Dữ liệu được kết nối trực tiếp từ hệ thống dữ liệu tập trung và cập nhật định kỳ theo lịch nạp dữ liệu của Ban Tài Chính Kế Hoạch (TCKHTT).</div>
+    </div>
+
   </section>
 
 </main>
 
 <footer>
   <strong>ACC1 — Tổng Công ty Xây dựng Số 1 - CTCP</strong><br>
-  Hướng dẫn sử dụng Dashboard Dòng tiền - TCKHTT (Phiên bản 5 Trang) · Power BI · 2026
+  Hướng dẫn sử dụng Dashboard Dòng tiền - TCKHTT (Phiên bản đầy đủ 6 Trang & Vận hành) · Power BI · 2026
 </footer>
 
 </body>
